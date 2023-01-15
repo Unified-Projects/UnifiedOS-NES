@@ -17,7 +17,7 @@ void GameOnDraw(surface_t* window){
 
     memset(window->buffer, 0xFF, window->width * window->height * 4);
 
-    return;
+    // return;
 }
 
 int main(int argc, char *argv[]){
