@@ -13,9 +13,9 @@ Bus* nes;
 
 void GameOnDraw(surface_t* window){
     // COPY VIDEOBUFFER TO THE WINDOW
-    // window->Blit(&GameWindow);
+    window->Blit(&GameWindow);
 
-    memset(window->buffer, 0xFF, window->width * window->height * 4);
+    // memset(window->buffer, 0xFF, window->width * window->height * 4);
 
     // return;
 }
@@ -81,7 +81,7 @@ int main(int argc, char *argv[]){
         while (!nes->ppu.frame_complete){
             nes->clock();
         }
-        // nes->ppu.frame_complete = false;
+        nes->ppu.frame_complete = false;
 
         // RENDER WINDOW
         window->Render();
