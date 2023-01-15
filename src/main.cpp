@@ -33,7 +33,7 @@ void ScaleNES(){
 void GameOnDraw(surface_t* window){
     // COPY VIDEOBUFFER TO THE WINDOW
     // ScaleNES();
-    window->Blit(&GameWindow1);
+    window->Blit(&GameWindow);
 
     // memset(window->buffer, 0xFF, window->width * window->height * 4);
 
