@@ -70,11 +70,10 @@ PPU2C02::PPU2C02()
 	palScreen[0x3D] = vec3{160, 162, 160};
 	palScreen[0x3E] = vec3{0, 0, 0};
 	palScreen[0x3F] = vec3{0, 0, 0};
-	return;
 }
 
 PPU2C02::~PPU2C02(){
-	return;
+
 }
 
 
@@ -206,7 +205,6 @@ void PPU2C02::cpuWrite(uint16_t addr, uint8_t data)
 		vram_addr.reg += (control.increment_mode ? 32 : 1);
 		break;
 	}
-	return;
 }
 
 uint8_t PPU2C02::ppuRead(uint16_t addr, bool rdonly)
@@ -312,7 +310,6 @@ void PPU2C02::ppuWrite(uint16_t addr, uint8_t data)
 		if (addr == 0x001C) addr = 0x000C;
 		tblPalette[addr] = data;
 	}
-	return;
 }
 
 void PPU2C02::reset()
@@ -337,13 +334,11 @@ void PPU2C02::reset()
 	tram_addr.reg = 0x0000;
 	scanline_trigger = false;
 	odd_frame = false;
-	return;
 }
 
 void PPU2C02::ConnectCartridge(const std::shared_ptr<Cartridge>& cartridge)
 {
 	this->cart = cartridge;
-	return;
 }
 
 PixelImage& PPU2C02::GetScreen(){
@@ -804,6 +799,4 @@ void PPU2C02::clock(){
 			odd_frame = !odd_frame;
 		}
 	}
-
-	return;
 }

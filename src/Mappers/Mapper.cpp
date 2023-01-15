@@ -3,11 +3,10 @@
 Mapper::Mapper(uint8_t prgBanks, uint8_t chrBanks){
     nPRGBanks = prgBanks;
     nCHRBanks = chrBanks;
-    return;
 }
 
 Mapper::~Mapper(){
-    return;
+    
 }
 
 MIRROR Mapper::mirror()
@@ -22,10 +21,8 @@ bool Mapper::irqState()
 
 void Mapper::irqClear()
 {
-    return;
 }
 
 void Mapper::scanline()
 {
-    return;
 }

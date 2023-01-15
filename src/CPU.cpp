@@ -22,11 +22,10 @@ CPU6502::CPU6502(){
 		{ "CPX", &a::CPX, &a::IMM, 2 },{ "SBC", &a::SBC, &a::IZX, 6 },{ "???", &a::NOP, &a::IMP, 2 },{ "???", &a::XXX, &a::IMP, 8 },{ "CPX", &a::CPX, &a::ZP0, 3 },{ "SBC", &a::SBC, &a::ZP0, 3 },{ "INC", &a::INC, &a::ZP0, 5 },{ "???", &a::XXX, &a::IMP, 5 },{ "INX", &a::INX, &a::IMP, 2 },{ "SBC", &a::SBC, &a::IMM, 2 },{ "NOP", &a::NOP, &a::IMP, 2 },{ "???", &a::SBC, &a::IMP, 2 },{ "CPX", &a::CPX, &a::ABS, 4 },{ "SBC", &a::SBC, &a::ABS, 4 },{ "INC", &a::INC, &a::ABS, 6 },{ "???", &a::XXX, &a::IMP, 6 },
 		{ "BEQ", &a::BEQ, &a::REL, 2 },{ "SBC", &a::SBC, &a::IZY, 5 },{ "???", &a::XXX, &a::IMP, 2 },{ "???", &a::XXX, &a::IMP, 8 },{ "???", &a::NOP, &a::IMP, 4 },{ "SBC", &a::SBC, &a::ZPX, 4 },{ "INC", &a::INC, &a::ZPX, 6 },{ "???", &a::XXX, &a::IMP, 6 },{ "SED", &a::SED, &a::IMP, 2 },{ "SBC", &a::SBC, &a::ABY, 4 },{ "NOP", &a::NOP, &a::IMP, 2 },{ "???", &a::XXX, &a::IMP, 7 },{ "???", &a::NOP, &a::IMP, 4 },{ "SBC", &a::SBC, &a::ABX, 4 },{ "INC", &a::INC, &a::ABX, 7 },{ "???", &a::XXX, &a::IMP, 7 },
 	};
-	return;
 }
 
 CPU6502::~CPU6502(){
-	return;
+
 }
 
 uint8_t CPU6502::read(uint16_t addr, bool bReadOnly){
@@ -53,7 +52,6 @@ void CPU6502::clock(){
     }
 
     cycles--;
-	return;
 }
 
 uint8_t CPU6502::GetFlag(FLAGS6502 f)
@@ -67,7 +65,6 @@ void CPU6502::SetFlag(FLAGS6502 f, bool v)
 		status |= f;
 	else
 		status &= ~f;
-	return;
 }
 
 //Addressing Modes
@@ -428,7 +425,6 @@ void CPU6502::reset()
 
 	// Reset takes time
 	cycles = 8;
-	return;
 }
 
 void CPU6502::irq(){
@@ -452,7 +448,6 @@ void CPU6502::irq(){
         
         cycles = 7;
     }
-	return;
 }
 
 void CPU6502::nmi(){
@@ -474,7 +469,6 @@ void CPU6502::nmi(){
     pc = (hi << 8) | lo;
         
     cycles = 8;
-	return;
 }
 
 uint8_t CPU6502::RTI(){

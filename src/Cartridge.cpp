@@ -88,14 +88,12 @@ Cartridge::Cartridge(const std::string& sFileName)
 
 		bImageValid = true;
 		ifs.close();
-		return;
 	}
 
 }
 
 Cartridge::~Cartridge()
 {
-	return;
 }
 
 bool Cartridge::ImageValid()
