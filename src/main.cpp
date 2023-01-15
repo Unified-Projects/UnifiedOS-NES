@@ -83,6 +83,9 @@ int main(int argc, char *argv[]){
 
         // RENDER WINDOW
         window->Render();
+
+        printf("NES: frame\n");
+        fflush(stdout);
     }
 
     return 0;
