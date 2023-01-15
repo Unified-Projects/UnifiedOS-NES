@@ -12,8 +12,10 @@ std::shared_ptr<Cartridge> cart;
 Bus* nes;
 
 void GameOnDraw(surface_t* window){
-    // TOT COPY VIDEOBUFFER TO THE WINDOW
-    window->Blit(&GameWindow);
+    // COPY VIDEOBUFFER TO THE WINDOW
+    // window->Blit(&GameWindow);
+
+    memset(window->buffer, 0xFF, window->width * window->height * 4);
 }
 
 int main(int argc, char *argv[]){
