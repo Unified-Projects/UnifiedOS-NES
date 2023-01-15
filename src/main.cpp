@@ -8,15 +8,32 @@ using namespace LibUnified::GUI;
 using namespace LibUnified::Graphics;
 
 surface_t GameWindow;
+surface_t GameWindow2;
 std::shared_ptr<Cartridge> cart;
 Bus* nes;
+Window* window;
+
+#define SCALE 4
+
+void ScaleNES(){
+    uint64_t pos = 0;
+
+    for(int y = 0; y < GameWindow.height; y ++;){
+        for(int x = 0; x < GameWindow.width; x ++;){
+            for(int j = 0; j < SCALE; j++){
+                for(int i = 0; i < SCALE; i++){
+                    memcpy(GameWindow2.buffer + pos + (GameWindow2.width * 4 * ((Y + j) * SCALE)), GameWindow.buffer + ((x * 4) + (y * GameWindow.width * 4)), 4);
+                    pos += 4;
+                }
+            }
+        }
+    }
+}
 
 void GameOnDraw(surface_t* window){
     // COPY VIDEOBUFFER TO THE WINDOW
-    window->Blit(&GameWindow);
-
-    printf("NES: Blitting Screen\n");
-    fflush(stdout);
+    ScaleNES();
+    window->Blit(&GameWindow2);
 
     // memset(window->buffer, 0xFF, window->width * window->height * 4);
 
@@ -64,10 +81,15 @@ int main(int argc, char *argv[]){
     GameWindow.height = nes->ppu.GetScreen().size.y;
     GameWindow.buffer = nes->ppu.GetScreen().buffer;
 
+    // Setup game2 surface
+    GameWindow2.width = nes->ppu.GetScreen().size.x * SCALE;
+    GameWindow2.height = nes->ppu.GetScreen().size.y * SCALE;
+    GameWindow2.buffer = new uint8_t[GameWindow2.width * GameWindow2.height * SCALE];
+
     // Create a window
     printf("NES: Creating Window\n");
     fflush(stdout);
-    Window* window = new Window((std::string("NES Emulator")).c_str(), {0, 0}, {0, 0}, WINDOW_TYPE_LOCKED);
+    window = new Window((std::string("NES Emulator")).c_str(), {0, 0}, {0, 0}, WINDOW_TYPE_LOCKED);
     window->OnDraw = GameOnDraw;
 
     if(!window->surface.width){ //Invalid window so failed
