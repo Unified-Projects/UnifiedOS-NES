@@ -15,6 +15,9 @@ void GameOnDraw(surface_t* window){
     // COPY VIDEOBUFFER TO THE WINDOW
     window->Blit(&GameWindow);
 
+    printf("NES: Blitting Screen\n");
+    fflush(stdout);
+
     // memset(window->buffer, 0xFF, window->width * window->height * 4);
 
     // return;
