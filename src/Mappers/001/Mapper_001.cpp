@@ -3,11 +3,13 @@
 Mapper_001::Mapper_001(uint8_t prgBanks, uint8_t chrBanks) : Mapper(prgBanks, chrBanks)
 {
 	vRAMStatic.resize(32 * 1024);
+	return;
 }
 
 
 Mapper_001::~Mapper_001()
 {
+	return;
 }
 
 bool Mapper_001::cpuMapRead(uint16_t addr, uint32_t &mapped_addr, uint8_t &data)
@@ -235,6 +237,7 @@ void Mapper_001::reset()
 	nPRGBankSelect32 = 0;
 	nPRGBankSelect16Lo = 0;
 	nPRGBankSelect16Hi = nPRGBanks - 1;
+	return;
 }
 
 MIRROR Mapper_001::mirror()

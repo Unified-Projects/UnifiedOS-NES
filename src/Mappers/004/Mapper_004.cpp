@@ -3,11 +3,13 @@
 Mapper_004::Mapper_004(uint8_t prgBanks, uint8_t chrBanks) : Mapper(prgBanks, chrBanks)
 {
 	vRAMStatic.resize(32 * 1024);
+	return;
 }
 
 
 Mapper_004::~Mapper_004()
 {
+	return;
 }
 
 bool Mapper_004::cpuMapRead(uint16_t addr, uint32_t &mapped_addr, uint8_t &data)
@@ -253,6 +255,8 @@ void Mapper_004::reset()
 	pPRGBank[1] = 1 * 0x2000;
 	pPRGBank[2] = (nPRGBanks * 2 - 2) * 0x2000;
 	pPRGBank[3] = (nPRGBanks * 2 - 1) * 0x2000;
+
+	return;
 }
 
 
@@ -279,6 +283,7 @@ void Mapper_004::scanline()
 	{
 		bIRQActive = true;
 	}
+	return;
 	
 }
 

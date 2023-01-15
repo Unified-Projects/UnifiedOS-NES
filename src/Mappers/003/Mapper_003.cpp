@@ -2,11 +2,13 @@
 
 Mapper_003::Mapper_003(uint8_t prgBanks, uint8_t chrBanks) : Mapper(prgBanks, chrBanks)
 {
+	return;
 }
 
 
 Mapper_003::~Mapper_003()
 {
+	return;
 }
 
 bool Mapper_003::cpuMapRead(uint16_t addr, uint32_t &mapped_addr, uint8_t &data)
@@ -54,4 +56,5 @@ bool Mapper_003::ppuMapWrite(uint16_t addr, uint32_t &mapped_addr)
 void Mapper_003::reset()
 {
 	nCHRBankSelect = 0;
+	return;
 }

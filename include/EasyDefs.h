@@ -32,5 +32,6 @@ struct PixelImage
         *pix = (colour.x << 24);
         *pix |= (colour.y << 16);
         *pix |= (colour.z << 8);
+        return;
     }
 };

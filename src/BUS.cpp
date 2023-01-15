@@ -5,10 +5,12 @@ Bus::Bus(){
 
     //Clear Ram
     for (auto &i : cpuRam) i = 0x00;
+
+    return;
 }
 
 Bus::~Bus(){
-
+    return;
 }
 
 void Bus::cpuWrite(uint16_t addr, uint8_t data){
@@ -32,6 +34,7 @@ void Bus::cpuWrite(uint16_t addr, uint8_t data){
     else if(addr >= 0x4016 && addr <=0x4017){
         controller_state[addr & 0x001] = controller[addr & 0x0001];
     }
+    return;
 }
 
 uint8_t Bus::cpuRead(uint16_t addr, bool bReadOnly){
@@ -66,6 +69,7 @@ uint8_t Bus::cpuRead(uint16_t addr, bool bReadOnly){
 void Bus::insertCartridge(const std::shared_ptr<Cartridge>& cartridge){
     this->cart = cartridge;
     ppu.ConnectCartridge(cartridge);
+    return;
 }
 
 void Bus::reset(){
@@ -78,6 +82,7 @@ void Bus::reset(){
 	dma_data = 0x00;
 	dma_dummy = true;
 	dma_transfer = false;
+    return;
 }
 
 bool Bus::clock(){
@@ -145,4 +150,5 @@ bool Bus::clock(){
 void Bus::SetSampleFrequency(uint32_t sample_rate){
     dAudioTimePerSystemSample = 1.0 / (double)sample_rate;
     dAudioTimePerNESClock = 1.0 / 5369318.0;
+    return;
 }

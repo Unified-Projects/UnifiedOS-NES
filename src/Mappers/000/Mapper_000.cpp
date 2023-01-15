@@ -1,11 +1,11 @@
 #include <Mappers/000/Mapper_000.h>
 
 Mapper_000::Mapper_000(uint8_t prgBanks, uint8_t chrBanks) : Mapper(prgBanks, chrBanks){
-
+	return;
 }
 
 Mapper_000::~Mapper_000(){
-
+	return;
 }
 
 bool Mapper_000::cpuMapRead(uint16_t addr, uint32_t &mapped_addr, uint8_t &data)
@@ -54,5 +54,5 @@ bool Mapper_000::ppuMapWrite(uint16_t addr, uint32_t &mapped_addr)
 
 void Mapper_000::reset()
 {
-
+	return;
 }
