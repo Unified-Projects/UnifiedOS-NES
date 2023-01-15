@@ -18,11 +18,11 @@ Window* window;
 void ScaleNES(){
     uint64_t pos = 0;
 
-    for(int y = 0; y < GameWindow.height; y ++;){
-        for(int x = 0; x < GameWindow.width; x ++;){
+    for(int y = 0; y < GameWindow.height; y++){
+        for(int x = 0; x < GameWindow.width; x++){
             for(int j = 0; j < SCALE; j++){
                 for(int i = 0; i < SCALE; i++){
-                    memcpy(GameWindow2.buffer + pos + (GameWindow2.width * 4 * ((Y + j) * SCALE)), GameWindow.buffer + ((x * 4) + (y * GameWindow.width * 4)), 4);
+                    memcpy(GameWindow2.buffer + pos + (GameWindow2.width * 4 * ((y + j) * SCALE)), GameWindow.buffer + ((x * 4) + (y * GameWindow.width * 4)), 4);
                     pos += 4;
                 }
             }
