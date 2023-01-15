@@ -7,7 +7,7 @@ using namespace LibUnified::Graphics;
 
 surface_t GameWindow;
 std::shared_ptr<Cartridge> cart;
-Bus nes;
+Bus* nes;
 
 void GameOnDraw(surface_t* window){
     // TOT COPY VIDEOBUFFER TO THE WINDOW
@@ -33,11 +33,11 @@ int main(int argc, char *argv[]){
     nes.reset();
 
     // Setup game surface
-    GameWindow.size = {nes.ppu.GetScreen().size.x, nes.ppu.GetScreen().size.y};
+    GameWindow.size = {nes.ppu.GetScreen().Size.x, nes.ppu.GetScreen().size.y};
     GameWindow.buffer = nes.ppu.GetScreen().buffer;
 
     // Create a window
-    Window* window = new Window((std::string("NES Emulator") + std::to_string(i)).c_str(), {0, 0}, {0, 0}, WINDOW_TYPE_LOCKED);
+    Window* window = new Window((std::string("NES Emulator")).c_str(), {0, 0}, {0, 0}, WINDOW_TYPE_LOCKED);
     window->OnDraw = GameOnDraw;
 
     for(;;){ // GAME LOOP

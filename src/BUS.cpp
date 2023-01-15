@@ -113,6 +113,7 @@ bool Bus::clock(){
     }
 
     //Sync with audio
+    bool bAudioSampleReady = true;
     // bool bAudioSampleReady = false;
 	// dAudioTime += dAudioTimePerNESClock;
 	// if (dAudioTime >= dAudioTimePerSystemSample){
