@@ -22,7 +22,7 @@ void ScaleNES(){
         for(int x = 0; x < GameWindow.width; x++){
             for(int j = 0; j < SCALE; j++){
                 for(int i = 0; i < SCALE; i++){
-                    memcpy(GameWindow2.buffer + pos + (GameWindow2.width * 4 * ((y + j) * SCALE)), GameWindow.buffer + ((x * 4) + (y * GameWindow.width * 4)), 4);
+                    memcpy(GameWindow2.buffer + pos + (GameWindow2.width * 4 * ((y * SCALE) + j)), GameWindow.buffer + ((x * 4) + (y * GameWindow.width * 4)), 4);
                     pos += 4;
                 }
             }
