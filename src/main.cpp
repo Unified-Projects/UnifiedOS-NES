@@ -81,7 +81,7 @@ int main(int argc, char *argv[]){
         while (!nes->ppu.frame_complete){
             nes->clock();
         }
-        nes->ppu.frame_complete = false;
+        // nes->ppu.frame_complete = false;
 
         // RENDER WINDOW
         window->Render();
