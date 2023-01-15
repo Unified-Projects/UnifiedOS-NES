@@ -26,6 +26,7 @@ set(unifienes_SRC
     src/Mappers/003/Mapper_003.cpp
     src/Mappers/004/Mapper_004.cpp
     src/Mappers/066/Mapper_066.cpp
+    src/Mappers/Mapper.cpp
     
     src/main.cpp
 )
