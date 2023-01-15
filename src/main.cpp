@@ -33,7 +33,8 @@ int main(int argc, char *argv[]){
     nes->reset();
 
     // Setup game surface
-    GameWindow.Size = {nes->ppu.GetScreen().size.x, nes->ppu.GetScreen().size.y};
+    GameWindow.width = nes->ppu.GetScreen().size.x;
+    GameWindow.height = nes->ppu.GetScreen().size.y;
     GameWindow.buffer = nes->ppu.GetScreen().buffer;
 
     // Create a window
