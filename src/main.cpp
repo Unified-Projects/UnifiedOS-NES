@@ -78,8 +78,10 @@ int main(int argc, char *argv[]){
         window->Poll();
 
         // CLOCK EMULATOR
-        do { nes->clock(); } while (!nes->ppu.frame_complete);
-			nes->ppu.frame_complete = false;
+        while (!nes->ppu.frame_complete){
+            nes->clock();
+        }
+        nes->ppu.frame_complete = false;
 
         // RENDER WINDOW
         window->Render();
