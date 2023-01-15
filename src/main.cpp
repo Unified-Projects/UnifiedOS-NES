@@ -29,12 +29,12 @@ int main(int argc, char *argv[]){
 
     // LOAD THE CARTRIDGE
 	cart = std::make_shared<Cartridge>(argv[1]);
-    nes.insertCartridge(cart);
-    nes.reset();
+    nes->insertCartridge(cart);
+    nes->reset();
 
     // Setup game surface
-    GameWindow.size = {nes.ppu.GetScreen().Size.x, nes.ppu.GetScreen().size.y};
-    GameWindow.buffer = nes.ppu.GetScreen().buffer;
+    GameWindow.size = {nes->ppu.GetScreen().Size.x, nes->ppu.GetScreen().size.y};
+    GameWindow.buffer = nes->ppu.GetScreen().buffer;
 
     // Create a window
     Window* window = new Window((std::string("NES Emulator")).c_str(), {0, 0}, {0, 0}, WINDOW_TYPE_LOCKED);
@@ -45,8 +45,8 @@ int main(int argc, char *argv[]){
         window->Poll();
 
         // CLOCK EMULATOR
-        do { nes.clock(); } while (!nes.ppu.frame_complete);
-			nes.ppu.frame_complete = false;
+        do { nes->clock(); } while (!nes->ppu.frame_complete);
+			nes->ppu.frame_complete = false;
 
         // RENDER WINDOW
         window->Render();
