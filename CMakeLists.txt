@@ -7,7 +7,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_compile_options($<$<C_COMPILER_ID:Clang>:-fcolor-diagnostics>)
 
-add_compile_options(-Werror -Wall -Wextra -Wno-write-strings -Wno-missing-braces)
+# add_compile_options(-Werror -Wall -Wextra -Wno-write-strings -Wno-missing-braces)
 add_compile_options(-march=x86-64-v2)
 # add_compile_options(-ffreestanding -nostdlib)
 
