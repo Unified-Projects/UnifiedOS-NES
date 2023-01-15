@@ -29,9 +29,9 @@ struct PixelImage
 
         uint32_t* pix = (uint32_t*)(buffer + (4 * pos.x) + (size.x * 4 * pos.y));
 
-        *pix = (colour.y << 24);
-        *pix |= (colour.z << 16);
-        *pix |= (colour.x << 8);
+        *pix = (colour.x << 24);
+        *pix |= (colour.y << 16);
+        *pix |= (colour.z << 8);
         return;
     }
 };
