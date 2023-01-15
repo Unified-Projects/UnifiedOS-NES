@@ -1,6 +1,8 @@
 // THE MAIN FILE FOR SETUPS AND MANAGEMENT OF THE PROCESS
 #include <BUS.h>
 
+#include <stdio.h>
+
 #include <LibUnified/GUI/Window.h>
 using namespace LibUnified::GUI;
 using namespace LibUnified::Graphics;
@@ -15,19 +17,34 @@ void GameOnDraw(surface_t* window){
 }
 
 int main(int argc, char *argv[]){
+    printf("NES Started\n");
+    fflush(stdout);
+
     // CHECK FOR ARGS IF NOT FAIL
     if (argc <= 1 || !argv){
+        printf("NES: No Args\n");
+        fflush(stdout);
         return -1; // No file inputed
     }
 
     if(!argv[1] /*File*/){
+        printf("NES: No File\n");
+        fflush(stdout);
         return -1;
     }
+
+    printf("NES: Creating Bus\n");
+    fflush(stdout);
 
     // SETUP EMULATOR
     nes = new Bus;
 
+    printf("NES: Bus %lx\n", (uint64_t)nes);
+    fflush(stdout);
+
     // LOAD THE CARTRIDGE
+    printf("NES: Loading %s\n", argv[1]);
+    fflush(stdout);
 	cart = std::make_shared<Cartridge>(argv[1]);
     nes->insertCartridge(cart);
     nes->reset();
@@ -38,6 +55,8 @@ int main(int argc, char *argv[]){
     GameWindow.buffer = nes->ppu.GetScreen().buffer;
 
     // Create a window
+    printf("NES: Creating Window\n");
+    fflush(stdout);
     Window* window = new Window((std::string("NES Emulator")).c_str(), {0, 0}, {0, 0}, WINDOW_TYPE_LOCKED);
     window->OnDraw = GameOnDraw;
 
