@@ -60,6 +60,15 @@ int main(int argc, char *argv[]){
     Window* window = new Window((std::string("NES Emulator")).c_str(), {0, 0}, {0, 0}, WINDOW_TYPE_LOCKED);
     window->OnDraw = GameOnDraw;
 
+    if(!window->surface.width){ //Invalid window so failed
+        printf("NES: Did not recieve window\n");
+        fflush(stdout);
+    }
+    else{
+        printf("NES: Window, Size: X: %lu, Y: %lu, Buffer: %lx\n", window->surface.width, window->surface.height, window->surface.buffer);
+        fflush(stdout);
+    }
+
     for(;;){ // GAME LOOP
         // POLL WINDOW (For input purposes)
         window->Poll();
