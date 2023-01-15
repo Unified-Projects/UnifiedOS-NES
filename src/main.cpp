@@ -20,6 +20,9 @@ void GameOnDraw(surface_t* window){
 
     memset(window->buffer, 0xFF, window->width * window->height * 4);
 
+    printf("NES: Window, Size: X: %lu, Y: %lu, Buffer: %lx\n", window->width, window->height, window->buffer);
+    fflush(stdout);
+
     // return;
 }
 
