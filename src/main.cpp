@@ -26,8 +26,8 @@ bool Render = true;
 void ScaleNES(surface_t* window){
 
     if(!Scaled || ((oldWindow.width != window->width) || (oldWindow.height != window->height)) /*Resized*/){
-        uint64_t maxXScale = floor(window->width / GameWindow.width);
-        uint64_t maxYScale = floor(window->height / GameWindow.height);
+        uint64_t maxXScale = floor(((float)window->width) / ((float)GameWindow.width));
+        uint64_t maxYScale = floor(((float)window->height) / ((float)GameWindow.height));
 
         // Now get minimum of the two
         SCALE = std::min(maxXScale, maxYScale);
