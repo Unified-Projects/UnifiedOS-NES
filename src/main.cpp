@@ -79,9 +79,6 @@ void GameOnDraw(surface_t* window){
 }
 
 void GameOnKeyboard(Graphics::surface_t* window, uint8_t keyCode, bool Pressed, uint64_t flags){
-    printf("KEYBOARD UPDATE: KEY: %c\n", keyCode);
-    fflush(stdout);
-
     if(keyCode == 'x'){
         nes->controller[0] &= 0xFF - 0x80;
         nes->controller[0] |= (Pressed) ? 0x80 : 0x00; // A Button
@@ -98,19 +95,19 @@ void GameOnKeyboard(Graphics::surface_t* window, uint8_t keyCode, bool Pressed, 
         nes->controller[0] &= 0xFF - 0x10;
         nes->controller[0] |= (Pressed) ? 0x10 : 0x00; // Start
     }
-    else if (keyCode == KEY_UP){
+    else if (keyCode == KEY_ARROW_UP){
         nes->controller[0] &= 0xFF - 0x08;
         nes->controller[0] |= (Pressed) ? 0x08 : 0x00;
     }
-    else if (keyCode == KEY_DOWN){
+    else if (keyCode == KEY_ARROW_DOWN){
         nes->controller[0] &= 0xFF - 0x04;
         nes->controller[0] |= (Pressed) ? 0x04 : 0x00;
     }
-    else if (keyCode == KEY_LEFT){
+    else if (keyCode == KEY_ARROW_LEFT){
         nes->controller[0] &= 0xFF - 0x02;
         nes->controller[0] |= (Pressed) ? 0x02 : 0x00;
     }
-    else if (keyCode == KEY_RIGHT){
+    else if (keyCode == KEY_ARROW_RIGHT){
         nes->controller[0] &= 0xFF - 0x01;
         nes->controller[0] |= (Pressed) ? 0x01 : 0x00;
     }
