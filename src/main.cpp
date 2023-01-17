@@ -78,36 +78,36 @@ void GameOnDraw(surface_t* window){
 
 void GameOnKeyboard(Graphics::surface_t* window, uint8_t keyCode, bool Pressed){
     if(keyCode == "x"){
-        nes.controller[0] &= 0xFF - 0x80;
-        nes.controller[0] |= (Pressed) ? 0x80 : 0x00; // A Button
+        nes->controller[0] &= 0xFF - 0x80;
+        nes->controller[0] |= (Pressed) ? 0x80 : 0x00; // A Button
     }
     else if (keyCode == "z"){
-        nes.controller[0] &= 0xFF - 0x40;
-        nes.controller[0] |= (Pressed) ? 0x40 : 0x00; // B Button
+        nes->controller[0] &= 0xFF - 0x40;
+        nes->controller[0] |= (Pressed) ? 0x40 : 0x00; // B Button
     }
     else if (keyCode == "a"){
-        nes.controller[0] &= 0xFF - 0x20;
-        nes.controller[0] |= (Pressed) ? 0x20 : 0x00; // Select
+        nes->controller[0] &= 0xFF - 0x20;
+        nes->controller[0] |= (Pressed) ? 0x20 : 0x00; // Select
     }
     else if (keyCode == "s"){
-        nes.controller[0] &= 0xFF - 0x10;
-        nes.controller[0] |= (Pressed) ? 0x10 : 0x00; // Start
+        nes->controller[0] &= 0xFF - 0x10;
+        nes->controller[0] |= (Pressed) ? 0x10 : 0x00; // Start
     }
     else if (keyCode == KEY_UP){
-        nes.controller[0] &= 0xFF - 0x08;
-        nes.controller[0] |= (Pressed) ? 0x08 : 0x00;
+        nes->controller[0] &= 0xFF - 0x08;
+        nes->controller[0] |= (Pressed) ? 0x08 : 0x00;
     }
     else if (keyCode == KEY_DOWN){
-        nes.controller[0] &= 0xFF - 0x04;
-        nes.controller[0] |= (Pressed) ? 0x04 : 0x00;
+        nes->controller[0] &= 0xFF - 0x04;
+        nes->controller[0] |= (Pressed) ? 0x04 : 0x00;
     }
     else if (keyCode == KEY_LEFT){
-        nes.controller[0] &= 0xFF - 0x02;
-        nes.controller[0] |= (Pressed) ? 0x02 : 0x00;
+        nes->controller[0] &= 0xFF - 0x02;
+        nes->controller[0] |= (Pressed) ? 0x02 : 0x00;
     }
     else if (keyCode == KEY_RIGHT){
-        nes.controller[0] &= 0xFF - 0x01;
-        nes.controller[0] |= (Pressed) ? 0x01 : 0x00;
+        nes->controller[0] &= 0xFF - 0x01;
+        nes->controller[0] |= (Pressed) ? 0x01 : 0x00;
     }
 }
 
