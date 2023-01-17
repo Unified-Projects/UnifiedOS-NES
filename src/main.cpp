@@ -75,9 +75,6 @@ void GameOnDraw(surface_t* window){
         return; // Stop issues with blitting a invalid size
     }
 
-    printf("Applying offsets X: %d, Y: %d\n", (window->width - GameWindow2.width) / 2, (window->height - GameWindow2.height) / 2);
-    fflush(stdout);
-
     // window->Blit(&GameWindow2, /*Center*/{(window->width - GameWindow2.width) / 2, (window->height - GameWindow2.height) / 2});
     window->Blit(&GameWindow2);
 }
@@ -176,7 +173,7 @@ int main(int argc, char *argv[]){
 
     // Calc 60 FPS in nano seconds
     long FPS = 30;
-    long FPS_Interval = (1 * 1000 * 1000 * 1000) / (60);
+    long FPS_Interval = (1 * 1000 * 1000 * 1000) / (FPS);
 
     for(;;){ // GAME LOOP
         clock_gettime(CLOCK_BOOTTIME, &start);
