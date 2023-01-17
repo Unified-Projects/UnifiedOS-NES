@@ -77,19 +77,19 @@ void GameOnDraw(surface_t* window){
 }
 
 void GameOnKeyboard(Graphics::surface_t* window, uint8_t keyCode, bool Pressed){
-    if(keyCode == "x"){
+    if(keyCode == 'x'){
         nes->controller[0] &= 0xFF - 0x80;
         nes->controller[0] |= (Pressed) ? 0x80 : 0x00; // A Button
     }
-    else if (keyCode == "z"){
+    else if (keyCode == 'z'){
         nes->controller[0] &= 0xFF - 0x40;
         nes->controller[0] |= (Pressed) ? 0x40 : 0x00; // B Button
     }
-    else if (keyCode == "a"){
+    else if (keyCode == 'a'){
         nes->controller[0] &= 0xFF - 0x20;
         nes->controller[0] |= (Pressed) ? 0x20 : 0x00; // Select
     }
-    else if (keyCode == "s"){
+    else if (keyCode == 's'){
         nes->controller[0] &= 0xFF - 0x10;
         nes->controller[0] |= (Pressed) ? 0x10 : 0x00; // Start
     }
