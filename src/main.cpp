@@ -154,6 +154,7 @@ int main(int argc, char *argv[]){
     fflush(stdout);
     window = new Window((std::string("NES Emulator")).c_str(), {0, 0}, {0, 0}, WINDOW_TYPE_LOCKED);
     window->OnDraw = GameOnDraw;
+    window->OnKBInput = GameOnKeyboard;
 
     if(!window->surface.width){ //Invalid window so failed
         printf("NES: Did not recieve window\n");
