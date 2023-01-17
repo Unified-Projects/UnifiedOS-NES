@@ -7,6 +7,7 @@
 
 #include <LibUnified/GUI/Window.h>
 #include <LibUnified/Input/Keys.h>
+using namespace LibUnified;
 using namespace LibUnified::GUI;
 using namespace LibUnified::Graphics;
 
@@ -22,9 +23,9 @@ bool Render = true;
 
 void ScaleNES(surface_t* window){
 
-    if(!Scaled || (oldWindow.buffer != window.buffer) /*Resized*/){
-        uint64_t maxXScale = floor(window.width / GameWindow.width);
-        uint64_t maxYScale = floor(window.height / GameWindow.height);
+    if(!Scaled || (oldWindow.buffer != window->buffer) /*Resized*/){
+        uint64_t maxXScale = floor(window->width / GameWindow.width);
+        uint64_t maxYScale = floor(window->height / GameWindow.height);
 
         // Now get minimum of the two
         SCALE = std::min(maxXScale, maxYScale);
@@ -49,7 +50,7 @@ void ScaleNES(surface_t* window){
         GameWindow2.height = GameWindow.height * SCALE;
         GameWindow2.buffer = new uint8_t[GameWindow2.width * GameWindow2.height * 4];
 
-        oldWindow = window;
+        oldWindow = *window;
         Scaled = true;
     }
 
