@@ -79,7 +79,7 @@ void GameOnDraw(surface_t* window){
 }
 
 void GameOnKeyboard(Graphics::surface_t* window, uint8_t keyCode, bool Pressed, uint64_t flags){
-    printf("Ketcode: %lu\n", keyCode)
+    printf("Ketcode: %lu\n", keyCode);
     
     if(keyCode == 'x'){
         nes->controller[0] &= 0xFF - 0x80;
