@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <algorithm>
-
+#include <unistd.h>
 #include <ctime>
 
 #include <LibUnified/GUI/Window.h>
