@@ -76,7 +76,7 @@ void GameOnDraw(surface_t* window){
     window->Blit(&GameWindow2);
 }
 
-void GameOnKeyboard(Graphics::surface_t* window, uint8_t keyCode, bool Pressed){
+void GameOnKeyboard(Graphics::surface_t* window, uint8_t keyCode, bool Pressed, uint64_t flags){
     if(keyCode == 'x'){
         nes->controller[0] &= 0xFF - 0x80;
         nes->controller[0] |= (Pressed) ? 0x80 : 0x00; // A Button
