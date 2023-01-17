@@ -75,6 +75,9 @@ void GameOnDraw(surface_t* window){
         return; // Stop issues with blitting a invalid size
     }
 
+    printf("Applying offsets X: %d, Y: %d\n", (window->width - GameWindow2.width) / 2, (window->height - GameWindow2.height) / 2);
+    fflush(stdout);
+
     window->Blit(&GameWindow2, /*Center*/{(window->width - GameWindow2.width) / 2, (window->height - GameWindow2.height) / 2});
 }
 
