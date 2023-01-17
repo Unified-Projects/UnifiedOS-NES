@@ -75,41 +75,39 @@ void GameOnDraw(surface_t* window){
         return; // Stop issues with blitting a invalid size
     }
 
-    window->Blit(&GameWindow2);
+    window->Blit(&GameWindow2, /*Center*/{(window->width - GameWindow2.width) / 2, (window->height - GameWindow2.height) / 2});
 }
 
 void GameOnKeyboard(Graphics::surface_t* window, int keyCode, bool Pressed, uint64_t flags){
-    printf("Ketcode: %lu\n", keyCode);
-    
     if(keyCode == 'x'){
         nes->controller[0] &= 0xFF - 0x80;
         nes->controller[0] |= (Pressed) ? 0x80 : 0x00; // A Button
     }
-    else if (keyCode == 'z'){
+    if (keyCode == 'z'){
         nes->controller[0] &= 0xFF - 0x40;
         nes->controller[0] |= (Pressed) ? 0x40 : 0x00; // B Button
     }
-    else if (keyCode == 'a'){
+    if (keyCode == 'a'){
         nes->controller[0] &= 0xFF - 0x20;
         nes->controller[0] |= (Pressed) ? 0x20 : 0x00; // Select
     }
-    else if (keyCode == 's'){
+    if (keyCode == 's'){
         nes->controller[0] &= 0xFF - 0x10;
         nes->controller[0] |= (Pressed) ? 0x10 : 0x00; // Start
     }
-    else if (keyCode == KEY_ARROW_UP){
+    if (keyCode == KEY_ARROW_UP){
         nes->controller[0] &= 0xFF - 0x08;
         nes->controller[0] |= (Pressed) ? 0x08 : 0x00;
     }
-    else if (keyCode == KEY_ARROW_DOWN){
+    if (keyCode == KEY_ARROW_DOWN){
         nes->controller[0] &= 0xFF - 0x04;
         nes->controller[0] |= (Pressed) ? 0x04 : 0x00;
     }
-    else if (keyCode == KEY_ARROW_LEFT){
+    if (keyCode == KEY_ARROW_LEFT){
         nes->controller[0] &= 0xFF - 0x02;
         nes->controller[0] |= (Pressed) ? 0x02 : 0x00;
     }
-    else if (keyCode == KEY_ARROW_RIGHT){
+    if (keyCode == KEY_ARROW_RIGHT){
         nes->controller[0] &= 0xFF - 0x01;
         nes->controller[0] |= (Pressed) ? 0x01 : 0x00;
     }
