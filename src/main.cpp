@@ -5,6 +5,8 @@
 #include <math.h>
 #include <algorithm>
 
+#include <ctime>
+
 #include <LibUnified/GUI/Window.h>
 #include <LibUnified/Input/Keys.h>
 using namespace LibUnified;
@@ -165,7 +167,15 @@ int main(int argc, char *argv[]){
         fflush(stdout);
     }
 
+    timespec start;
+    timespec end;
+
+    // Calc 60 FPS in nano seconds
+    long FPS = 60;
+    long FPS_Interval = (1 * 1000 * 1000 * 1000) / (60);
+
     for(;;){ // GAME LOOP
+        clock_gettime(CLOCK_BOOTTIME, &start);
         // POLL WINDOW (For input purposes)
         window->Poll();
 
@@ -178,8 +188,13 @@ int main(int argc, char *argv[]){
         // RENDER WINDOW
         window->Render();
 
-        // printf("NES: frame\n");
-        // fflush(stdout);
+        // FPS Control
+        clock_gettime(CLOCK_BOOTTIME, &end);
+        long timeDiff = (end.tv_sec - start.tv_sec) * 1000000000UL +
+                        (end.tv_nsec - start.tv_nsec);
+
+        if(FPS_Interval - timeDiff > 0)
+            usleep((FPS_Interval - timeDiff) / 1000);
     }
 
     return 0;
