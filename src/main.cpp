@@ -172,7 +172,7 @@ int main(int argc, char *argv[]){
     timespec end;
 
     // Calc 60 FPS in nano seconds
-    long FPS = 30;
+    long FPS = 100;
     long FPS_Interval = (1 * 1000 * 1000 * 1000) / (FPS);
 
     for(;;){ // GAME LOOP
