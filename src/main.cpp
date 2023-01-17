@@ -25,7 +25,7 @@ bool Render = true;
 
 void ScaleNES(surface_t* window){
 
-    if(!Scaled || (oldWindow.buffer != window->buffer) /*Resized*/){
+    if(!Scaled || ((oldWindow.width != window->width) || (oldWindow.height != window->height)) /*Resized*/){
         uint64_t maxXScale = floor(window->width / GameWindow.width);
         uint64_t maxYScale = floor(window->height / GameWindow.height);
 
@@ -79,6 +79,8 @@ void GameOnDraw(surface_t* window){
 }
 
 void GameOnKeyboard(Graphics::surface_t* window, uint8_t keyCode, bool Pressed, uint64_t flags){
+    printf("Ketcode: %lu\n", keyCode)
+    
     if(keyCode == 'x'){
         nes->controller[0] &= 0xFF - 0x80;
         nes->controller[0] |= (Pressed) ? 0x80 : 0x00; // A Button
@@ -171,7 +173,7 @@ int main(int argc, char *argv[]){
     timespec end;
 
     // Calc 60 FPS in nano seconds
-    long FPS = 60;
+    long FPS = 30;
     long FPS_Interval = (1 * 1000 * 1000 * 1000) / (60);
 
     for(;;){ // GAME LOOP
