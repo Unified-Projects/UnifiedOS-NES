@@ -78,7 +78,8 @@ void GameOnDraw(surface_t* window){
     printf("Applying offsets X: %d, Y: %d\n", (window->width - GameWindow2.width) / 2, (window->height - GameWindow2.height) / 2);
     fflush(stdout);
 
-    window->Blit(&GameWindow2, /*Center*/{-250, (window->height - GameWindow2.height) / 2});
+    // window->Blit(&GameWindow2, /*Center*/{(window->width - GameWindow2.width) / 2, (window->height - GameWindow2.height) / 2});
+    window->Blit(&GameWindow, /*Center*/{(window->width - GameWindow.width) / 2, (window->height - GameWindow.height) / 2});
 }
 
 void GameOnKeyboard(Graphics::surface_t* window, int keyCode, bool Pressed, uint64_t flags){
