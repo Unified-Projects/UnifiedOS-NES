@@ -79,7 +79,7 @@ void GameOnDraw(surface_t* window){
     fflush(stdout);
 
     // window->Blit(&GameWindow2, /*Center*/{(window->width - GameWindow2.width) / 2, (window->height - GameWindow2.height) / 2});
-    window->Blit(&GameWindow2,);
+    window->Blit(&GameWindow2);
 }
 
 void GameOnKeyboard(Graphics::surface_t* window, int keyCode, bool Pressed, uint64_t flags){
