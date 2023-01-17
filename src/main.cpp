@@ -78,7 +78,7 @@ void GameOnDraw(surface_t* window){
     window->Blit(&GameWindow2);
 }
 
-void GameOnKeyboard(Graphics::surface_t* window, uint8_t keyCode, bool Pressed, uint64_t flags){
+void GameOnKeyboard(Graphics::surface_t* window, int keyCode, bool Pressed, uint64_t flags){
     printf("Ketcode: %lu\n", keyCode);
     
     if(keyCode == 'x'){
