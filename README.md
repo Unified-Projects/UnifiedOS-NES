@@ -1,5 +1,7 @@
 # UnifiedOS-NES (NES Port to Unified OS)
 
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+
 This project aims to create a NES (Nintendo Entertainment System) emulator for Unified OS, based on the [Unified Emulation](https://github.com/Unified-Projects/Unified-Emulation) project.
 
 ## Table of Contents
