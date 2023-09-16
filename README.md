@@ -34,4 +34,4 @@ Please ensure that your contributions adhere to the project's coding standards a
 
 ## License
 
-This project is licensed under the MIT License. See the [licence](LICENSE.md) for more details.
+This project is licensed under the MIT License. See the [licence](LICENSE) for more details.
